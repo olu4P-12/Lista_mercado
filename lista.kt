@@ -1,6 +1,8 @@
 fun main(){
 
-    val lista = mutableMapOf<String, Double>()
+    val lista = mutableMapOf<String, Double>() //String → nome do produto / Double → preço do produto
+
+
     var opcao : Int
 
     do {
@@ -16,7 +18,7 @@ fun main(){
 
         opcao = readLine()!!.toInt()
 
-        when (opcao) {
+        when (opcao) { //funciona como um menu de decisões
 
             1 -> adicionarProduto(lista)
             2 -> removerProdutos(lista)
@@ -26,7 +28,7 @@ fun main(){
 
         }
 
-    }while (opcao != 0)
+    }while (opcao != 0) //Esse do while faz o programa ficar repetindo o menu até o usuário escolher sair.
 
 }
 
@@ -39,7 +41,8 @@ fun adicionarProduto(lista: MutableMap<String, Double>){
     val preco = readLine()!!.toDouble()
 
     lista [nome] = preco
-    println("Produto adicionado")
+    println("Produto adicionado")  //O programa pede:Nome do produto/ Preço do produto Depois salva no Map : lista[nome] = preco
+
 
 }
 
@@ -51,7 +54,8 @@ fun removerProdutos(lista : MutableMap<String, Double>){
     if (lista.remove(nome) != null){  //se retornar null  o produto não estava na lista
         println("produto removido")
     }else
-        println("Produto nao encontrado")
+        println("Produto nao encontrado")  //Se o produto existir → ele é removido/ Se não existir → aparece "Produto não encontrado"
+
 
 }
 
@@ -61,12 +65,15 @@ fun alterarPreco(lista: MutableMap<String, Double>) {
     val nome = readLine()!!
 
     if (lista.containsKey(nome)) {
-        print("Novo preço: ")
+        print("Novo preço: ") // Primeiro verifica se o produto existe:
         val novoPreco = readLine()!!.toDouble()
         lista[nome] = novoPreco
-        println("Preço atualizado!")
+        println("Preço atualizado!") //Se existir: pede o novo preço atualiza o valor
+
+
     } else {
-        println("Produto não encontrado.")
+        println("Produto não encontrado.") 
+
     }
 }
 
@@ -75,11 +82,13 @@ fun verLista(lista : MutableMap<String,Double>){
 
     println("Lista de produtos")
 
-    if (lista.isEmpty()){
-        print("Lista vazia")
+    if (lista.isEmpty()){ // Primeiro verifica se a lista está vazia:
+        print("Lista vazia") 
     }else{
         for ((nome, preco) in lista){
-            println("$nome - R$ $preco")
+            println("$nome - R$ $preco") // Se tiver produtos, ele percorre o Map com: for ((nome, preco) in lista)
+
+
 
 
 
@@ -93,6 +102,7 @@ fun sairDaLista(lista : MutableMap<String,Double>) {
         println("Encerrando Lista")
 
          }
+
 
 
 
