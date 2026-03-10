@@ -12,6 +12,8 @@ fun main(){
         println("4 - Mostrar a Lista")
         println("0 - !!Sair!!")
 
+        
+
         opcao = readLine()!!.toInt()
 
         when (opcao) {
@@ -19,7 +21,8 @@ fun main(){
             1 -> adicionarProduto(lista)
             2 -> removerProdutos(lista)
             3 -> alterarPreco(lista)
-
+            4 -> verLista(lista)
+            0 -> sairDaLista(lista)
 
         }
 
@@ -53,13 +56,44 @@ fun removerProdutos(lista : MutableMap<String, Double>){
 }
 
 
-fun alterarPreco(lista: MutableMap<String, Double>){
+fun alterarPreco(lista: MutableMap<String, Double>) {
+    print("Produto para alterar preço: ")
+    val nome = readLine()!!
 
-
-
-
-
+    if (lista.containsKey(nome)) {
+        print("Novo preço: ")
+        val novoPreco = readLine()!!.toDouble()
+        lista[nome] = novoPreco
+        println("Preço atualizado!")
+    } else {
+        println("Produto não encontrado.")
+    }
 }
+
+fun verLista(lista : MutableMap<String,Double>){
+
+
+    println("Lista de produtos")
+
+    if (lista.isEmpty()){
+        print("Lista vazia")
+    }else{
+        for ((nome, preco) in lista){
+            println("$nome - R$ $preco")
+
+
+
+            }
+        }
+    }
+
+fun sairDaLista(lista : MutableMap<String,Double>) {
+
+
+        println("Encerrando Lista")
+
+         }
+
 
 
 
